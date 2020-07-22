@@ -1,4 +1,4 @@
-import os
+from os.path import exists, dirname, join
 import uuid
 
 
@@ -20,7 +20,7 @@ class File:
 
     def __add__(self, obj):
         new_path = join(
-            dirname(self.path),
+            tempfile.gettempdir(),
             str(uuid.uuid4().hex)
         )
         new_file = type(self)(new_path)
